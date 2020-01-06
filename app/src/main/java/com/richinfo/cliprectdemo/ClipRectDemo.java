@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Rect;
 import android.graphics.Region;
 import android.util.AttributeSet;
 import android.view.View;
@@ -46,8 +47,10 @@ public class ClipRectDemo extends View {
         drawScene(canvas);
         canvas.restore();
 
-//        //DIFFERENCE,以第一次剪裁的为基础，在此基础上擦除第二次剪裁的部分(裁出第一次操作，并擦除掉第二次操作)
+        //DIFFERENCE,以第一次剪裁的为基础，在此基础上擦除第二次剪裁的部分(裁出第一次操作，并擦除掉第二次操作)
+        //clipRect裁剪画布，将默认全屏幕大小的画布修改为（0, 0, 300, 300)，画布最终的大小就变成了300x300
 //        canvas.save();
+//        Rect rect = canvas.getClipBounds();
 //        canvas.translate(560, 0);
 //        canvas.clipRect(0, 0, 300, 300);
 //        canvas.clipRect(200, 200, 500, 500, Region.Op.DIFFERENCE);
@@ -55,7 +58,7 @@ public class ClipRectDemo extends View {
 //        canvas.restore();
 
 
-//        //INTERSECT,交叉,保留第一次剪裁和第二次剪裁重叠的部分
+        //INTERSECT,交叉,保留第一次剪裁和第二次剪裁重叠的部分
 //        canvas.save();
 //        canvas.translate(560, 0);
 //        canvas.clipRect(0, 0, 300, 300);
@@ -71,10 +74,10 @@ public class ClipRectDemo extends View {
 //        canvas.clipRect(0, 0, 300, 300);
 //        canvas.clipRect(200, 200, 500, 500, Region.Op.REPLACE);
 //        //2.第二次操作
-////        canvas.clipRect(200, 200, 500, 500);
-////        canvas.clipRect(0, 0, 300, 300, Region.Op.REPLACE);
+//        canvas.clipRect(200, 200, 500, 500);
+//        canvas.clipRect(0, 0, 300, 300, Region.Op.REPLACE);
 //        //3.第三种操作
-////        canvas.clipRect(0, 0, 300, 300);
+//        canvas.clipRect(0, 0, 300, 300);
 //        drawScene(canvas);
 //        canvas.restore();
 
@@ -82,7 +85,7 @@ public class ClipRectDemo extends View {
 //        canvas.save();
 //        canvas.translate(560, 0);
 //        canvas.clipRect(0, 0, 300, 300);
-//        canvas.clipRect(200, 200, 500, 500, Region.Op.REVERSE_DIFFERENCE );
+//        canvas.clipRect(200, 200, 500, 500, Region.Op.REVERSE_DIFFERENCE);
 //        drawScene(canvas);
 //        canvas.restore();
 
